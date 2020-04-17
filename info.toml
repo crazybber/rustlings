@@ -52,8 +52,24 @@ because we want to assign a different typed value to an existing variable. Somet
 you may also like to reuse existing variable names because you are just converting
 values to different types like in this exercise.
 Fortunately Rust has a powerful solution to this problem: 'Shadowing'!
-You can read more about 'Shadowing' in the book's section 'Variables and Mutability'.
+You can read more about 'Shadowing' in the book's section 'Variables and Mutability': 
+https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing
 Try to solve this exercise afterwards using this technique."""
+
+[[exercises]]
+name = "variables6"
+path = "exercises/variables/variables6.rs"
+mode = "compile"
+hint = """
+We know about variables and mutability, but there is another important type of 
+variable available; constants. 
+Constants are always immutable and they are declared with keyword 'const' rather 
+then keyword 'let'.
+Constants types must also always be annotated.
+
+Read more about constants under 'Differences Between Variables and Constants' in the book's section 'Variables and Mutability': 
+https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html
+"""
 
 # IF
 
@@ -199,13 +215,22 @@ Now you have another tool in your toolbox!"""
 name = "structs1"
 path = "exercises/structs/structs1.rs"
 mode = "test"
-hint = "No hints this time ;)"
+hint = """
+Rust has more than one type of struct. Both variants are used to package related data together.
+On the one hand, there are normal, or classic, structs. These are named collections of related data stored in fields.
+The other variant is tuple structs. Basically just named tuples.
+In this exercise you need to implement one of each kind.
+
+Read more about structs in The Book: https://doc.rust-lang.org/stable/book/ch05-00-structs.html"""
 
 [[exercises]]
 name = "structs2"
 path = "exercises/structs/structs2.rs"
 mode = "test"
-hint = "No hints this time ;)"
+hint = """
+Creating instances of structs is easy, all you need to do is assign some values to its fields. 
+There is however some shortcuts that can be taken when instantiating structs. 
+Have a look in The Book, to find out more: https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax"""
 
 # STRINGS
 
@@ -511,14 +536,32 @@ https://doc.rust-lang.org/std/result/#results-must-be-used"""
 
 [[exercises]]
 name = "option1"
-path = "exercises/error_handling/option1.rs"
-mode = "test"
+path = "exercises/option/option1.rs"
+mode = "compile"
 hint = """
-Try using a `match` statement where the arms are `Some(thing)` and `None`.
-Or set a default value to print out if you get `None` by using the
-function `unwrap_or`.
-Or use an `if let` statement on the result of `pop()` to both destructure
-a `Some` value and only print out something if we have a value!"""
+Check out some functions of Option:
+is_some
+is_none
+unwrap
+
+and:
+pattern matching
+"""
+
+[[exercises]]
+name = "option2"
+path = "exercises/option/option2.rs"
+mode = "compile"
+hint = """
+check out:
+https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html
+https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html
+
+Remember that Options can be stacked in if let and while let.
+For example: Some(Some(variable)) = variable2
+
+
+"""
 
 [[exercises]]
 name = "result1"
@@ -623,6 +666,38 @@ Try mutating the incoming string vector.
 
 Vectors provide suitable methods for adding an element at the end. See 
 the documentation at: https://doc.rust-lang.org/std/vec/struct.Vec.html"""
+
+# Generics
+
+[[exercises]]
+name = "generics1"
+path = "exercises/generics/generics1.rs"
+mode = "compile"
+hint = """
+Vectors in rust make use of generics to create dynamically sized arrays of any type.
+You need to tell the compiler what type we are pushing onto this vector."""
+
+[[exercises]]
+name = "generics2"
+path = "exercises/generics/generics2.rs"
+mode = "test"
+hint = """
+Think carefully about what we need to do here. Currently we are wrapping only values of
+type 'u32'. Maybe we need to update the explicit references to this data type somehow?
+"""
+
+[[exercises]]
+name = "generics3"
+path = "exercises/generics/generics3.rs"
+mode = "test"
+hint = """
+To find the best solution to this challenge you're going to need to think back to your 
+knowledge of traits, specifically Trait Bound Syntax -  you may also need this: "use std::fmt::Display;"
+
+This is definitely harder than the last two exercises! You need to think about not only making the
+ReportCard struct generic, but also the correct property - you will need to change the implementation
+of the struct slightly too...you can do it!
+"""
 
 # THREADS
 
